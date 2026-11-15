@@ -1,0 +1,7 @@
+{
+  "name": "elton-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

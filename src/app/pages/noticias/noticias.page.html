@@ -1,0 +1,232 @@
+<ion-content [fullscreen]="true">
+
+  <div class="home-container">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-logo">U</div>
+
+        <div>
+          <h2>UCSal</h2>
+          <span>Portal do Aluno</span>
+        </div>
+      </div>
+
+      <div class="user-area">
+        <div class="user-info">
+          <span>Bem-vindo(a),</span>
+          <strong>{{ nomeAluno }}</strong>
+        </div>
+
+        <div class="user-avatar">
+          {{ nomeAluno.charAt(0).toUpperCase() }}
+        </div>
+
+        <ion-button fill="clear" class="logout-button" (click)="sair()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+    </header>
+
+    <section class="welcome-section">
+
+      <div>
+        <span class="welcome-label">PORTAL ACADÊMICO</span>
+
+        <h1>Olá, {{ nomeAluno }}!</h1>
+
+        <p>
+          Confira as últimas novidades e informações da sua universidade.
+        </p>
+      </div>
+
+      <div class="welcome-decoration">
+        <span>UCSal</span>
+      </div>
+
+    </section>
+
+    <main class="content-grid">
+
+      <div class="main-column">
+
+        <section class="section">
+
+          <div class="section-heading">
+            <div>
+              <span class="section-label">FIQUE POR DENTRO</span>
+              <h2>Notícia em destaque</h2>
+            </div>
+          </div>
+
+          <article
+            class="featured-news"
+            (click)="abrirNoticia(noticias[0])">
+
+            <div class="featured-image">
+              <img [src]="noticias[0].imagem" [alt]="noticias[0].titulo">
+
+              <ion-badge color="light">
+                {{ noticias[0].categoria }}
+              </ion-badge>
+            </div>
+
+            <div class="featured-content">
+
+              <span class="news-date">
+                {{ noticias[0].data }}
+              </span>
+
+              <h3>{{ noticias[0].titulo }}</h3>
+
+              <p>{{ noticias[0].descricao }}</p>
+
+              <button class="read-more">
+                Ler notícia
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+
+            </div>
+
+          </article>
+
+        </section>
+
+        <section class="section">
+
+          <div class="section-heading">
+
+            <div>
+              <span class="section-label">ATUALIZAÇÕES</span>
+              <h2>Últimas notícias</h2>
+            </div>
+
+            <button class="view-all" (click)="verTodasNoticias()">
+              Ver todas
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="news-list">
+
+            @for (noticia of noticias.slice(1); track noticia.id) {
+
+              <article
+                class="news-card"
+                (click)="abrirNoticia(noticia)">
+
+                <img
+                  [src]="noticia.imagem"
+                  [alt]="noticia.titulo">
+
+                <div class="news-card-content">
+
+                  <div class="news-card-meta">
+                    <span>{{ noticia.categoria }}</span>
+                    <small>{{ noticia.data }}</small>
+                  </div>
+
+                  <h3>{{ noticia.titulo }}</h3>
+
+                  <p>{{ noticia.descricao }}</p>
+
+                </div>
+
+                <ion-icon
+                  name="chevron-forward-outline"
+                  class="news-arrow">
+                </ion-icon>
+
+              </article>
+
+            }
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <aside class="sidebar">
+
+        <section class="sidebar-card">
+
+          <div class="section-heading">
+            <div>
+              <span class="section-label">AGENDA ACADÊMICA</span>
+              <h2>Próximos eventos</h2>
+            </div>
+          </div>
+
+          <div class="events-list">
+
+            @for (evento of eventos; track evento.titulo) {
+
+              <article class="event-item">
+
+                <div class="event-date">
+                  {{ evento.data }}
+                </div>
+
+                <div class="event-info">
+                  <h3>{{ evento.titulo }}</h3>
+
+                  <span>
+                    <ion-icon name="time-outline"></ion-icon>
+                    {{ evento.horario }}
+                  </span>
+
+                  <span>
+                    <ion-icon name="location-outline"></ion-icon>
+                    {{ evento.local }}
+                  </span>
+                </div>
+
+              </article>
+
+            }
+
+          </div>
+
+        </section>
+
+        <section class="sidebar-card quick-access">
+
+  <span class="section-label">NAVEGAÇÃO</span>
+  <h2>Acesso rápido</h2>
+
+  <a routerLink="/perfil">
+    <ion-icon name="person-outline"></ion-icon>
+    Meu perfil
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </a>
+
+  <a routerLink="/financeiro">
+    <ion-icon name="wallet-outline"></ion-icon>
+    Financeiro
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </a>
+
+  <a routerLink="/noticias">
+    <ion-icon name="newspaper-outline"></ion-icon>
+    Notícias
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </a>
+
+</section>
+
+      </aside>
+
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Universidade Católica do Salvador</p>
+      <span>Portal do Aluno • UCSal</span>
+    </footer>
+
+  </div>
+
+</ion-content>

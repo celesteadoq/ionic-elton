@@ -1,0 +1,208 @@
+<ion-content [fullscreen]="true">
+
+  <div class="page-container">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-logo">U</div>
+
+        <div>
+          <h2>UCSal</h2>
+          <span>Portal do Aluno</span>
+        </div>
+      </div>
+
+      <ion-button fill="clear" class="back-button" (click)="voltar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Voltar
+      </ion-button>
+
+    </header>
+
+
+    <section class="page-heading">
+      <span class="section-label">ÁREA DO ESTUDANTE</span>
+      <h1>Meu perfil</h1>
+      <p>Consulte e atualize suas informações pessoais e acadêmicas.</p>
+    </section>
+
+    <main class="profile-layout">
+
+
+      <aside class="profile-summary">
+
+        <div class="avatar">
+          {{ nome.charAt(0).toUpperCase() }}
+        </div>
+
+        <h2>{{ nome }}</h2>
+        <p>{{ curso }}</p>
+
+        <div class="student-status">
+          <span></span>
+          Aluno ativo
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-info">
+          <span>MATRÍCULA</span>
+          <strong>{{ matricula }}</strong>
+        </div>
+
+        <div class="summary-info">
+          <span>CURSO</span>
+          <strong>{{ curso }}</strong>
+        </div>
+
+        <div class="summary-info">
+          <span>PERÍODO</span>
+          <strong>{{ semestre }}</strong>
+        </div>
+
+      </aside>
+
+
+      <section class="profile-content">
+
+        <div class="profile-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="section-label">INFORMAÇÕES</span>
+              <h2>Dados pessoais</h2>
+            </div>
+
+            @if (!editando) {
+              <ion-button fill="outline" (click)="editar()">
+                <ion-icon name="create-outline" slot="start"></ion-icon>
+                Editar
+              </ion-button>
+            }
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <ion-label>Nome completo</ion-label>
+              <ion-input
+                [value]="nome"
+                readonly>
+              </ion-input>
+            </div>
+
+            <div class="form-group">
+              <ion-label>E-mail institucional</ion-label>
+              <ion-input
+                [(ngModel)]="email"
+                [readonly]="!editando"
+                type="email">
+              </ion-input>
+            </div>
+
+            <div class="form-group">
+              <ion-label>Telefone</ion-label>
+              <ion-input
+                [(ngModel)]="telefone"
+                [readonly]="!editando"
+                type="tel">
+              </ion-input>
+            </div>
+
+            <div class="form-group">
+              <ion-label>Endereço</ion-label>
+              <ion-input
+                [(ngModel)]="endereco"
+                [readonly]="!editando">
+              </ion-input>
+            </div>
+
+          </div>
+
+          @if (editando) {
+            <div class="form-actions">
+
+              <ion-button fill="outline" color="medium" (click)="cancelar()">
+                <ion-icon name="close-outline" slot="start"></ion-icon>
+                Cancelar
+              </ion-button>
+
+              <ion-button (click)="salvar()">
+                <ion-icon name="save-outline" slot="start"></ion-icon>
+                Salvar alterações
+              </ion-button>
+
+            </div>
+          }
+
+        </div>
+
+  
+        <div class="profile-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="section-label">UNIVERSIDADE</span>
+              <h2>Dados acadêmicos</h2>
+            </div>
+
+            <div class="card-icon">
+              <ion-icon name="school-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="academic-info">
+
+            <div>
+              <span>Matrícula</span>
+              <strong>{{ matricula }}</strong>
+            </div>
+
+            <div>
+              <span>Curso</span>
+              <strong>{{ curso }}</strong>
+            </div>
+
+            <div>
+              <span>Instituição</span>
+              <strong>Universidade Católica do Salvador</strong>
+            </div>
+
+            <div>
+              <span>Semestre atual</span>
+              <strong>{{ semestre }}</strong>
+            </div>
+
+          </div>
+
+          <div class="academic-notice">
+            <ion-icon name="school-outline"></ion-icon>
+            <p>
+              Para alterações nos dados acadêmicos, procure a secretaria
+              da universidade.
+            </p>
+          </div>
+
+        </div>
+
+     
+        <div class="logout-area">
+          <ion-button fill="clear" color="danger" (click)="sair()">
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            Sair da conta
+          </ion-button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Universidade Católica do Salvador</p>
+      <span>Portal do Aluno • UCSal</span>
+    </footer>
+
+  </div>
+
+</ion-content>

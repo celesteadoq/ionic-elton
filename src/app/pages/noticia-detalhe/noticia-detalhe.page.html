@@ -1,0 +1,116 @@
+<ion-content [fullscreen]="true">
+
+  <div class="page-container">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-logo">U</div>
+
+        <div>
+          <h2>UCSal</h2>
+          <span>Portal do Aluno</span>
+        </div>
+      </div>
+
+      <ion-button fill="clear" class="back-button" (click)="voltar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Voltar para notícias
+      </ion-button>
+
+    </header>
+
+    @if (noticia) {
+
+
+      <main class="article-container">
+
+
+        <div class="breadcrumb">
+          <span (click)="voltar()">Início</span>
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>Notícias</span>
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <strong>{{ noticia.categoria }}</strong>
+        </div>
+
+        <div class="article-cover">
+          <img [src]="noticia.imagem" [alt]="noticia.titulo">
+        </div>
+
+
+        <div class="article-content">
+
+          <div class="article-meta">
+
+            <ion-badge color="primary">
+              {{ noticia.categoria }}
+            </ion-badge>
+
+            <span>
+              <ion-icon name="calendar-outline"></ion-icon>
+              {{ noticia.data }}
+            </span>
+
+          </div>
+
+
+          <h1>{{ noticia.titulo }}</h1>
+
+          <p class="article-subtitle">
+            {{ noticia.descricao }}
+          </p>
+
+          <div class="article-divider"></div>
+
+  
+          <section class="article-body">
+
+            @for (paragrafo of noticia.conteudo; track $index) {
+              <p>{{ paragrafo }}</p>
+            }
+
+          </section>
+
+
+          <div class="article-actions">
+
+            <ion-button fill="outline" (click)="compartilhar()">
+              <ion-icon name="share-social-outline" slot="start"></ion-icon>
+              Compartilhar notícia
+            </ion-button>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    } @else {
+
+
+      <div class="not-found">
+
+        <h2>Notícia não encontrada</h2>
+
+        <p>
+          Não foi possível localizar a notícia solicitada.
+        </p>
+
+        <ion-button (click)="voltar()">
+          Voltar para notícias
+        </ion-button>
+
+      </div>
+
+    }
+
+  
+    <footer class="footer">
+      <p>© 2026 Universidade Católica do Salvador</p>
+      <span>Portal do Aluno • UCSal</span>
+    </footer>
+
+  </div>
+
+</ion-content>

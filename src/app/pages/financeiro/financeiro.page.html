@@ -1,0 +1,254 @@
+<ion-content [fullscreen]="true">
+
+  <div class="page-container">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-logo">U</div>
+
+        <div>
+          <h2>UCSal</h2>
+          <span>Portal do Aluno</span>
+        </div>
+      </div>
+
+      <ion-button fill="clear" class="back-button" (click)="voltar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Voltar
+      </ion-button>
+
+    </header>
+
+
+    <section class="page-heading">
+
+      <span class="section-label">ÁREA FINANCEIRA</span>
+
+      <h1>Financeiro</h1>
+
+      <p>
+        Acompanhe suas mensalidades e consulte sua situação financeira.
+      </p>
+
+    </section>
+
+
+    <section class="summary-grid">
+
+
+      <article class="summary-card">
+
+        <div class="summary-icon blue">
+          <ion-icon name="wallet-outline"></ion-icon>
+        </div>
+
+        <div>
+          <span>Valor total do semestre</span>
+          <h2>{{ totalMensalidades | currency:'BRL' }}</h2>
+        </div>
+
+      </article>
+
+
+      <article class="summary-card">
+
+        <div class="summary-icon green">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+        </div>
+
+        <div>
+          <span>Total pago</span>
+          <h2>{{ totalPago | currency:'BRL' }}</h2>
+          <small>{{ quantidadePagas }} mensalidade(s) paga(s)</small>
+        </div>
+
+      </article>
+
+
+      <article class="summary-card">
+
+        <div class="summary-icon orange">
+          <ion-icon name="time-outline"></ion-icon>
+        </div>
+
+        <div>
+          <span>Em aberto</span>
+          <h2>{{ totalPendente | currency:'BRL' }}</h2>
+          <small>{{ quantidadePendentes }} mensalidade(s) em aberto</small>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <section class="finance-card">
+
+      <div class="finance-heading">
+
+        <div>
+          <span class="section-label">ACOMPANHAMENTO</span>
+          <h2>Minhas mensalidades</h2>
+        </div>
+
+        <div class="semester-filter">
+          <label for="semestre">Semestre:</label>
+
+          <select
+            id="semestre"
+            [(ngModel)]="semestreSelecionado">
+
+            <option value="2026.1">2026.1</option>
+            <option value="2026.2">2026.2</option>
+
+          </select>
+        </div>
+
+      </div>
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Mensalidade</th>
+              <th>Vencimento</th>
+              <th>Valor</th>
+              <th>Situação</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            @for (mensalidade of mensalidadesFiltradas; track mensalidade.id) {
+
+              <tr>
+
+                <td>
+                  <div class="payment-name">
+                    <div class="payment-icon">
+                      <ion-icon name="document-text-outline"></ion-icon>
+                    </div>
+
+                    <strong>{{ mensalidade.descricao }}</strong>
+                  </div>
+                </td>
+
+                <td>{{ mensalidade.vencimento }}</td>
+
+                <td class="payment-value">
+                  {{ mensalidade.valor | currency:'BRL' }}
+                </td>
+
+                <td>
+
+                  @if (mensalidade.status === 'Pago') {
+                    <span class="status paid">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      Pago
+                    </span>
+                  }
+
+                  @if (mensalidade.status === 'Pendente') {
+                    <span class="status pending">
+                      <ion-icon name="time-outline"></ion-icon>
+                      Pendente
+                    </span>
+                  }
+
+                  @if (mensalidade.status === 'Vencido') {
+                    <span class="status overdue">
+                      <ion-icon name="alert-circle-outline"></ion-icon>
+                      Vencido
+                    </span>
+                  }
+
+                </td>
+
+                <td>
+
+                  @if (mensalidade.status !== 'Pago') {
+
+                    <button
+                      class="copy-button"
+                      (click)="copiarCodigo(mensalidade)">
+
+                      <ion-icon
+                        [name]="copiadoId === mensalidade.id
+                          ? 'checkmark-circle-outline'
+                          : 'copy-outline'">
+                      </ion-icon>
+
+                      {{ copiadoId === mensalidade.id ? 'Copiado!' : 'Copiar código' }}
+
+                    </button>
+
+                  } @else {
+
+                    <span class="paid-label">Pagamento confirmado</span>
+
+                  }
+
+                </td>
+
+              </tr>
+
+            }
+
+            @if (mensalidadesFiltradas.length === 0) {
+              <tr>
+                <td colspan="5" class="empty-state">
+                  Nenhuma mensalidade encontrada para este semestre.
+                </td>
+              </tr>
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="finance-notice">
+
+        <ion-icon name="alert-circle-outline"></ion-icon>
+
+        <p>
+          Os dados financeiros apresentados são demonstrativos.
+          Para informações oficiais sobre pagamentos, consulte os canais
+          institucionais da UCSal.
+        </p>
+
+      </div>
+
+    </section>
+
+    
+    <section class="help-card">
+
+      <div class="help-icon">
+        <ion-icon name="card-outline"></ion-icon>
+      </div>
+
+      <div>
+        <h3>Precisa de ajuda?</h3>
+        <p>
+          Em caso de dúvidas sobre mensalidades, pagamentos ou cobranças,
+          entre em contato com o setor financeiro da universidade.
+        </p>
+      </div>
+
+    </section>
+
+    
+    <footer class="footer">
+      <p>© 2026 Universidade Católica do Salvador</p>
+      <span>Portal do Aluno • UCSal</span>
+    </footer>
+
+  </div>
+
+</ion-content>

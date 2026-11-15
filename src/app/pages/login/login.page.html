@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true">
+
+  <div class="login-container">
+
+    <div class="login-header">
+      <div class="logo">U</div>
+
+      <h1>Portal do Aluno</h1>
+      <p>Universidade Católica do Salvador</p>
+    </div>
+
+    <ion-card class="login-card">
+
+      <ion-card-header>
+        <ion-card-title>Bem-vindo!</ion-card-title>
+        <p>Entre com suas credenciais acadêmicas.</p>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <form #loginForm="ngForm" (ngSubmit)="fazerLogin()">
+
+          <div class="input-group">
+            <ion-label>Matrícula</ion-label>
+
+            <ion-item>
+              <ion-input
+                name="matricula"
+                type="text"
+                placeholder="Digite sua matrícula"
+                [(ngModel)]="matricula"
+                required>
+              </ion-input>
+            </ion-item>
+          </div>
+
+          <div class="input-group">
+            <ion-label>Senha</ion-label>
+
+            <ion-item>
+              <ion-input
+                name="senha"
+                type="password"
+                placeholder="Digite sua senha"
+                [(ngModel)]="senha"
+                required>
+              </ion-input>
+            </ion-item>
+          </div>
+
+          @if (mensagemErro) {
+            <div class="error-message">
+              {{ mensagemErro }}
+            </div>
+          }
+
+          <ion-button
+            expand="block"
+            type="submit"
+            [disabled]="loginForm.invalid">
+
+            Entrar
+
+          </ion-button>
+
+        </form>
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <div class="login-footer">
+      <p>Universidade Católica do Salvador</p>
+      <small>Portal Acadêmico • UCSal</small>
+    </div>
+
+  </div>
+
+</ion-content>

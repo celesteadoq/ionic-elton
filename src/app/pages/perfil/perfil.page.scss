@@ -1,0 +1,375 @@
+ion-content {
+  --background: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page-container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .brand-logo {
+    width: 45px;
+    height: 45px;
+    background: #092b55;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 800;
+  }
+
+  h2 {
+    color: #092b55;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  span {
+    color: #8492a6;
+    font-size: 12px;
+  }
+}
+
+.back-button {
+  --color: #092b55;
+  text-transform: none;
+}
+
+/* TÍTULO */
+
+.page-heading {
+  margin: 35px 0;
+
+  h1 {
+    color: #092b55;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 8px 0;
+  }
+
+  p {
+    color: #718096;
+    font-size: 14px;
+  }
+}
+
+.section-label {
+  color: #1763a6;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* LAYOUT */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+/* RESUMO DO ALUNO */
+
+.profile-summary {
+  background: #092b55;
+  border-radius: 16px;
+  padding: 30px 25px;
+  text-align: center;
+  color: white;
+
+  .avatar {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #dceaff;
+    color: #092b55;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 750;
+    margin-bottom: 7px;
+  }
+
+  p {
+    color: #c6d8ed;
+    font-size: 12px;
+  }
+}
+
+.student-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,.12);
+  padding: 8px 13px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-top: 12px;
+
+  span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+  }
+}
+
+.summary-divider {
+  height: 1px;
+  background: rgba(255,255,255,.15);
+  margin: 25px 0;
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 6px;
+  margin-bottom: 20px;
+
+  span {
+    color: #9bb7d7;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  strong {
+    color: white;
+    font-size: 13px;
+  }
+}
+
+/* CONTEÚDO */
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.profile-card {
+  background: white;
+  padding: 28px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(9,43,85,.04);
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+
+  h2 {
+    color: #092b55;
+    font-size: 20px;
+    font-weight: 750;
+    margin: 7px 0 0;
+  }
+
+  ion-button {
+    --border-radius: 9px;
+    --color: #1763a6;
+    --border-color: #1763a6;
+    text-transform: none;
+    font-size: 12px;
+  }
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  background: #eaf2fc;
+  color: #1763a6;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+/* FORMULÁRIO */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  ion-label {
+    color: #52647a;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  ion-input {
+    --background: #f4f7fb;
+    --color: #092b55;
+    --padding-start: 13px;
+    --padding-end: 13px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    min-height: 46px;
+    font-size: 13px;
+  }
+
+  ion-input[readonly] {
+    opacity: .8;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+
+  ion-button {
+    --border-radius: 9px;
+    text-transform: none;
+  }
+}
+
+/* DADOS ACADÊMICOS */
+
+.academic-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  span {
+    color: #8492a6;
+    font-size: 12px;
+  }
+
+  strong {
+    color: #092b55;
+    font-size: 13px;
+  }
+}
+
+.academic-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #eff6ff;
+  color: #1763a6;
+
+  border-radius: 9px;
+  padding: 13px;
+  margin-top: 25px;
+
+  ion-icon {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.logout-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* RODAPÉ */
+
+.footer {
+  border-top: 1px solid #e5eaf1;
+  margin-top: 40px;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+
+  p, span {
+    color: #94a3b8;
+    font-size: 12px;
+  }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-summary {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 0 18px;
+  }
+
+  .form-grid,
+  .academic-info {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+
+  .page-heading h1 {
+    font-size: 25px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

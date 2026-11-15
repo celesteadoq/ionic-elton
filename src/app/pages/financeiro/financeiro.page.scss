@@ -1,0 +1,453 @@
+ion-content {
+  --background: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page-container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* CABEÇALHO */
+
+.topbar {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .brand-logo {
+    width: 45px;
+    height: 45px;
+    background: #092b55;
+    color: white;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 800;
+  }
+
+  h2 {
+    color: #092b55;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  span {
+    color: #8492a6;
+    font-size: 12px;
+  }
+}
+
+.back-button {
+  --color: #092b55;
+  text-transform: none;
+}
+
+/* TÍTULO */
+
+.page-heading {
+  margin: 35px 0;
+
+  h1 {
+    color: #092b55;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 8px 0;
+  }
+
+  p {
+    color: #718096;
+    font-size: 14px;
+  }
+}
+
+.section-label {
+  color: #1763a6;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* RESUMO */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 14px;
+  padding: 23px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  box-shadow: 0 4px 15px rgba(9,43,85,.04);
+
+  span {
+    color: #8492a6;
+    font-size: 12px;
+  }
+
+  h2 {
+    color: #092b55;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 8px 0 4px;
+  }
+
+  small {
+    color: #94a3b8;
+    font-size: 11px;
+  }
+}
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 23px;
+
+  &.blue {
+    background: #eaf2fc;
+    color: #1763a6;
+  }
+
+  &.green {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+
+  &.orange {
+    background: #fff3dc;
+    color: #d97706;
+  }
+}
+
+/* CARTÃO FINANCEIRO */
+
+.finance-card {
+  background: white;
+  border-radius: 15px;
+  padding: 28px;
+  box-shadow: 0 4px 15px rgba(9,43,85,.04);
+}
+
+.finance-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+
+  h2 {
+    color: #092b55;
+    font-size: 21px;
+    font-weight: 750;
+    margin: 7px 0 0;
+  }
+}
+
+/* FILTRO */
+
+.semester-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  label {
+    color: #718096;
+    font-size: 12px;
+  }
+
+  select {
+    background: #f4f7fb;
+    border: 1px solid #dce4ef;
+    border-radius: 8px;
+    padding: 10px 14px;
+
+    color: #092b55;
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+  }
+}
+
+/* TABELA */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+
+  thead {
+    background: #f4f7fb;
+  }
+
+  th {
+    color: #718096;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    padding: 16px 13px;
+  }
+
+  td {
+    padding: 18px 13px;
+    border-bottom: 1px solid #edf1f6;
+    color: #52647a;
+    font-size: 12px;
+  }
+}
+
+.payment-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  strong {
+    color: #092b55;
+    font-size: 12px;
+  }
+}
+
+.payment-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  background: #eaf2fc;
+  color: #1763a6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.payment-value {
+  color: #092b55 !important;
+  font-weight: 750;
+}
+
+/* STATUS */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 11px;
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  &.paid {
+    color: #15803d;
+    background: #dcfce7;
+  }
+
+  &.pending {
+    color: #b45309;
+    background: #fef3c7;
+  }
+
+  &.overdue {
+    color: #dc2626;
+    background: #fee2e2;
+  }
+}
+
+/* BOTÃO COPIAR */
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  background: #eaf2fc;
+  color: #1763a6;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 9px 12px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    background: #d6e7fc;
+  }
+}
+
+.paid-label {
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 35px !important;
+}
+
+/* AVISO */
+
+.finance-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #eff6ff;
+  color: #1763a6;
+
+  padding: 15px;
+  border-radius: 9px;
+  margin-top: 25px;
+
+  ion-icon {
+    font-size: 21px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+/* AJUDA */
+
+.help-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  margin-top: 22px;
+
+  .help-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eaf2fc;
+    color: #1763a6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+  }
+
+  h3 {
+    color: #092b55;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  p {
+    color: #8492a6;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+/* RODAPÉ */
+
+.footer {
+  border-top: 1px solid #e5eaf1;
+  margin-top: 40px;
+  padding: 22px 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  p, span {
+    color: #94a3b8;
+    font-size: 12px;
+  }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 950px) {
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-card:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    padding: 0 18px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card:last-child {
+    grid-column: auto;
+  }
+
+  .finance-card {
+    padding: 18px;
+  }
+
+  .finance-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .page-heading h1 {
+    font-size: 25px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
